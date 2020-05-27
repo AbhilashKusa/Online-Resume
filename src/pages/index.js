@@ -23,10 +23,9 @@ const IndexPage = () => (
             <a href={`mailto:${config.email}`}>{config.email}</a>
           </div>
           <p className="lead mb-5">
-            I am experienced in leveraging agile frameworks to provide a robust
-            synopsis for high level overviews. Iterative approaches to corporate
-            strategy foster collaborative thinking to further the overall value
-            proposition.
+            I enjoy creating things that live on the internet, whether that be
+            websites, applications, or anything in between. My goal is to always
+            build products that provide pixel-perfect, performant experiences.
           </p>
           <div className="social-icons">
             {config.socialLinks.map(social => {
