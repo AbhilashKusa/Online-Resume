@@ -8,10 +8,12 @@ import config from '../../config';
 export class Sidebar extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      on: false,
+      className: 'collapse navbar-collapse',
       tabs: [
         { content: 'About', href: 'about' },
-      
         { content: 'Projects', href: 'projects' },
         { content: 'Education', href: 'education' },
         { content: 'Skills', href: 'skills' },
@@ -20,9 +22,20 @@ export class Sidebar extends Component {
       ],
     };
   }
-
+  onToggle = () => {
+    this.state.on
+      ? this.setState({
+          on: false,
+          className: 'collapse navbar-collapse',
+        })
+      : this.setState({
+          on: true,
+          className: 'collapse navbar-collapse text-center show ',
+        });
+  };
   render() {
     const { tabs } = this.state;
+
     return (
       <nav
         className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
@@ -48,10 +61,11 @@ export class Sidebar extends Component {
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={this.onToggle}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className={this.state.className} id="navbarSupportedContent">
           <Scrollspy
             items={tabs.map(s => s.href)}
             currentClassName="active"
